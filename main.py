@@ -1,7 +1,18 @@
+# Importando modulos
+
 print(" Importando modulos... ".center(80, "="))
 import pandas as pd
 
+# Meus modulos
+
+from utils.config import DATA_DIR
+
 print(" Modulos carregados com sucesso!".center(80, "="))
+
+# Configuração Path para acesso aos arquivos
+
+arquivo_base = DATA_DIR / "base_varejo.csv"
+
 
 # Ignorando warning message
 
@@ -10,7 +21,7 @@ print(" Modulos carregados com sucesso!".center(80, "="))
 
 print("\n" + " Carregando Arquivo base Varejo para Análise ".center(80, "="))
 print()
-df = pd.read_csv("./base_varejo.csv", sep=";")
+df = pd.read_csv(arquivo_base, sep=";")
 
 print()
 print(df.head(10))
