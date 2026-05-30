@@ -7,6 +7,7 @@ import time
 
 from utils.config import DATA_DIR
 from utils import Evidencias
+from utils.formatacao import padronizar_nome
 
 print(" Modulos carregados com sucesso!".center(80, "="))
 
@@ -62,3 +63,23 @@ print("\n" + " Fim bloco Colunas ".center(80, "="))
 print()
 
 Evidencias(df, "Base de Loja Varejo")
+
+print("\n" + " TRATAMENTO DOS DADOS ".center(80, "=") + "\n")
+
+# Remoção das colunas unnamed
+
+df = df.dropna(axis=1, how="all")
+
+print(df.columns)
+
+
+# Padronização de produto
+
+df["PR_NOME"] = df["PR_NOME"].apply(padronizar_nome)
+
+# Padronização de categoria
+#
+df["PR_CAT"] = df["PR_CAT"].apply(padronizar_nome)
+
+print("\n" + f"Validação padronização coluna PR_NOME:\n \n{df['PR_NOME']}")
+print("\n" + f"Validação padronização coluna PR_CAT:\n \n{df['PR_CAT']}")
