@@ -1,17 +1,19 @@
 # Importando modulos
 
-print(" Importando modulos... ".center(80, "="))
+print("\n" + " Importando modulos... ".center(80, "=") + "\n")
 import pandas as pd
-
+import time
 # Meus modulos
 
 from utils.config import DATA_DIR
+from utils import Evidencias
 
 print(" Modulos carregados com sucesso!".center(80, "="))
 
 # Configuração Path para acesso aos arquivos
 
 arquivo_base = DATA_DIR / "base_varejo.csv"
+arquivo = "base_varejo.csv"
 
 
 # Ignorando warning message
@@ -19,49 +21,44 @@ arquivo_base = DATA_DIR / "base_varejo.csv"
 
 # Carregar o dataset
 
-print("\n" + " Carregando Arquivo base Varejo para Análise ".center(80, "="))
+print("\n" + " Carregando Arquivo base Varejo para Análise ".center(80, "=") + "\n")
 print()
+
 df = pd.read_csv(arquivo_base, sep=";")
 
-print()
+print("Carregando", end="")
+for _ in range(5):
+    time.sleep(0.5)
+    print(".", end="", flush=True)
+print(f"\nCarregamento do arquivo {arquivo} foi concluído!" + "\n")
+
+# Exibição das 10 primeira linhas
+print("\n" + " As 10 primeiras linhas do DataSet".center(80, "=") + "\n")
 print(df.head(10))
-print()
+
+# Exibição das 10 ultimas linhas
+print("\n\n" + " As 10 ultimas linhas do DataSet".center(80, "=") + "\n")
+print(df.tail(10))
 
 #  Mostrar o tamanho (linhas e colunas)
 
-print(" Tamanho do Dataset: ".center(80, "="))
+print("\n" + " Tamanho do Dataset ".center(80, "=") + "\n")
 
-tamanho = f"Quantidade de linhas:  {df.shape[0]} | Quantidade de colunas: {df.shape[1]}"
+tamanho = (
+    f"Quantidade de linhas:  {df.shape[0]}  | Quantidade de colunas: {df.shape[1]}"
+)
+print(f"{tamanho.center(80)}\n")
+print("\n" + " Fim bloco Tamanho Dataset ".center(80, "=") + "\n")
 
-print(f"\n{tamanho.center(80)}\n")
+print("\n" + " Tipos de dado das colunas ".center(80, "=") + "\n")
 
-print(" Fim bloco Tamanho Dataset ".center(80, "="))
-print()
-print(" Tipos de dado das colunas ".center(80, "="))
-print()
 print(df.dtypes)
-print("\n" + " Fim bloco Tipos de dados".center(80, "="))
+print("\n" + " Fim bloco Tipos de dados ".center(80, "=") + "\n")
+print(" Colunas do Dataset:".center(80, "="))
+print()
+print(df.columns)
+print()
+print("\n" + " Fim bloco Colunas ".center(80, "="))
+print()
 
-
-def evidencias(df, nome="DataFrame"):
-    """
-    Dispõe um relatório completo de consistência dos dados.
-    """
-
-    print("=" * 80)
-    print(" EVIDÊNCIAS - {nome}".center(80))
-    print("=" * 80)
-    print(f" Linhas:            {df.shape[0]}")
-    print(f" Colunas:           {df.shape[1]}")
-    print(f" Linhas duplicadas: {df.duplicated().sum()}")
-    print()
-
-    nulos = df.isnull().sum()
-    pct = (nulos / len(df) * 100).round(1)
-
-    print(" Coluna          | Tipo               | Nulos | % Nulos")
-    print("  " + "-" * 50)
-    for col in df.columns:
-        tipo = str(df[col].dtypes)
-        print(f" {col:<18} |  {tipo:<10} |  {nulos[col]:<5} |  {pct[col]}%")
-    print("=" * 80)
+Evidencias(df, "Base de Loja Varejo")
