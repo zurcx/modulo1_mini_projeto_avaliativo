@@ -8,6 +8,7 @@ import time
 from utils.config import DATA_DIR
 from utils import Evidencias
 from utils.formatacao import padronizar_nome
+from utils.limpeza import tratar_falso_nulos
 
 print(" Modulos carregados com sucesso!".center(80, "="))
 
@@ -83,3 +84,9 @@ df["PR_CAT"] = df["PR_CAT"].apply(padronizar_nome)
 
 print("\n" + f"Validação padronização coluna PR_NOME:\n \n{df['PR_NOME']}")
 print("\n" + f"Validação padronização coluna PR_CAT:\n \n{df['PR_CAT']}")
+
+# Tratar falso nulos
+
+df = tratar_falso_nulos(df)
+df["DATA"] = pd.to_datetime(df["DATA"], errors="coerce")
+Evidencias(df, "Base de Loja Varejo")
