@@ -188,9 +188,14 @@ print(resumo_filhos_categ)
 
 
 print("\n" + " Resumo da análise".center(80, "=") + "\n")
-print("* ")
-print("* ")
-print("* ")
-print("* ")
-print("* ")
-print("* ")
+print("* Presença de espaços em branco no início e/ou final dos valores da coluna")
+print("* Existência de colunas não nomeadas (Unnamed), sem relevância para a análise.")
+print(
+    "* Identificação da categoria '#N/D', indicando ausência ou inconsistência na classificação do produto."
+)
+print(
+    "* Remoção das colunas não nomeadas (Unnamed), por não agregarem valor ao processo analítico."
+)
+print(
+    "* Conversão das colunas de data para o tipo adequado (datetime), permitindo análises temporais mais precisas."
+)
