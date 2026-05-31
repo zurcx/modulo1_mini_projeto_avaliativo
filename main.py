@@ -3,6 +3,8 @@
 print("\n" + " Importando modulos... ".center(80, "=") + "\n")
 import pandas as pd
 import time
+from datetime import datetime
+
 # Meus modulos
 
 from utils.config import DATA_DIR
@@ -15,8 +17,12 @@ print(" Modulos carregados com sucesso!".center(80, "="))
 # Configuração Path para acesso aos arquivos
 
 arquivo_base = DATA_DIR / "base_varejo.csv"
+
 arquivo = "base_varejo.csv"
 
+# tag para arquivo outputs
+
+data_execucao = datetime.now().strftime("%Y%m%d")
 
 # Ignorando warning message
 
@@ -199,3 +205,8 @@ print(
 print(
     "* Conversão das colunas de data para o tipo adequado (datetime), permitindo análises temporais mais precisas."
 )
+
+arquivo_tratado = f"outputs/base_varejo_tradada_{data_execucao}.csv"
+
+# df_limpo.to_csv("outputs/base_varejo_tratada.csv", index=False, encoding="utf-8-sig")
+df_limpo.to_csv(arquivo_tratado, index=False, encoding="utf_8_sig")
