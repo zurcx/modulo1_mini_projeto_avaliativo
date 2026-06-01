@@ -115,27 +115,27 @@ Durante a análise foram identificados e tratados diversos problemas na base.
 
 ### Distribuição de Produtos por Categoria
 
-![Distribuição de Produtos por Categoria](output/grafico_produtos_categoria.png)
+![Distribuição de Produtos por Categoria](outputs/grafico_produtos_categoria.png)
 
 ### Distribuição de Clientes por Gênero
 
-![Distribuição de Clientes por Gênero](output/grafico_clientes_genero.png)
+![Distribuição de Clientes por Gênero](outputs/grafico_clientes_genero.png)
 
 ### Distribuição de Clientes por Segmento
 
-![Distribuição de Clientes por Segmento](output/grafico_clientes_segmento.png)
+![Distribuição de Clientes por Segmento](outputs/grafico_clientes_segmento.png)
 
 ### Distribuição da Quantidade de Filhos
 
-![Distribuição da Quantidade de Filhos](output/grafico_quantidade_filhos.png)
+![Distribuição da Quantidade de Filhos](outputs/grafico_quantidade_filhos.png)
 
 ### Top 10 Produtos Mais Frequentes
 
-![Top 10 Produtos Mais Frequentes](output/grafico_top10_produtos.png)
+![Top 10 Produtos Mais Frequentes](outputs/grafico_top10_produtos.png)
 
 ### Evolução Temporal das Compras
 
-![Evolução Temporal das Compras](output/grafico_evolucao_compras.png)
+![Evolução Temporal das Compras](outputs/grafico_evolucao_compras.png)
 
 ---
 
