@@ -29,9 +29,10 @@ Miniprojeto_LuizFabioDaCruz_V2/
 │   └── base_varejo.csv
 │
 ├── notebooks/
-│   └── main.ipynb
+│   └── Noteboook_Grafico.ipynb
 │
 ├── output/
+│   ├── base_varejo_tratada.csv
 │   ├── grafico_produtos_categoria.png
 │   ├── grafico_clientes_genero.png
 │   ├── grafico_clientes_segmento.png
