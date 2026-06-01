@@ -233,7 +233,7 @@ jupyter notebook
 ### 7. Abrir o notebook principal
 
 ```text
-notebooks/main.ipynb
+notebooks/Notebook_Grafico.ipynb
 ```
 
 ---
