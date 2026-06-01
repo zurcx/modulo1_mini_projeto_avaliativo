@@ -1,150 +1,253 @@
+# Mini Projeto de Análise de Dados - Loja de Varejo
 
-# Problemas encontrados
-## Espaços no inicio da Categoria (PR_CAT)
-## Espaços no inicio da Nome do Produto (PR_NOME)
-## Colunas nao nomeadas
-## Colunas com valores nulos
+## Sobre o Projeto
 
+Este projeto tem como objetivo realizar uma Análise Exploratória de Dados (EDA) em uma base de transações de uma loja de varejo, aplicando técnicas de limpeza, tratamento, transformação e visualização de dados utilizando Python.
 
-# Etapas de limpeza
-## Removida colunas unnamed e com dados nulos
-## Conversão do tipo relacionada a data.
-## Identificado datas nulas, porém a opção foi a verificação em outras fontes que possam dar mais evidencia para tomada de decisão
-## Encontrado uma categoria '#N/D' foi classificada com 'Outros'
+A análise busca identificar padrões de consumo, perfil dos clientes, comportamento de compra e possíveis oportunidades de negócio a partir dos dados disponíveis.
 
-# Mini Projeto Avaliativo - Análise de Dados
+---
 
-Projeto desenvolvido como parte da trilha de Análise de Dados utilizando Python e Pandas.
+## Objetivos
+
+* Realizar a limpeza e preparação dos dados.
+* Identificar problemas de qualidade na base.
+* Analisar o perfil dos clientes.
+* Investigar a distribuição dos produtos e categorias.
+* Avaliar o comportamento temporal das compras.
+* Produzir visualizações que auxiliem na tomada de decisão.
+* Gerar insights a partir dos dados analisados.
+
+---
 
 ## Estrutura do Projeto
 
 ```text
-.
+Miniprojeto_LuizFabioDaCruz_V2/
+│
 ├── data/
 │   └── base_varejo.csv
+│
 ├── notebooks/
 │   └── main.ipynb
-├── outputs/
+│
+├── output/
+│   ├── grafico_produtos_categoria.png
+│   ├── grafico_clientes_genero.png
+│   ├── grafico_clientes_segmento.png
+│   ├── grafico_quantidade_filhos.png
+│   ├── grafico_top10_produtos.png
+│   └── grafico_evolucao_compras.png
+│
 ├── utils/
-│   ├── __init__.py
+│   ├── config.py
 │   ├── evidencias.py
-│   └── formatacao.py
-├── main.py
+│   ├── formatacao.py
+│   └── limpeza.py
+│
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 ```
 
-## Pré-requisitos
+### Descrição dos Módulos
 
-* Python 3.12+
+| Arquivo         | Descrição                                                                      |
+| --------------- | ------------------------------------------------------------------------------ |
+| `config.py`     | Configurações gerais do projeto e definição de diretórios.                     |
+| `evidencias.py` | Funções para análise exploratória inicial e evidências da qualidade dos dados. |
+| `formatacao.py` | Funções para padronização e formatação dos dados.                              |
+| `limpeza.py`    | Funções para limpeza e tratamento dos dados.                                   |
+
+---
+
+## Metodologia
+
+O projeto foi desenvolvido seguindo as seguintes etapas:
+
+1. Importação dos dados.
+2. Análise exploratória inicial.
+3. Identificação de problemas de qualidade.
+4. Limpeza e transformação dos dados.
+5. Geração de estatísticas descritivas.
+6. Construção de visualizações.
+7. Extração de insights.
+
+---
+
+## Tratamento dos Dados
+
+Durante a análise foram identificados e tratados diversos problemas na base.
+
+### Problemas Encontrados
+
+* Presença de espaços em branco no início e/ou final dos valores.
+* Colunas não nomeadas (`Unnamed`) sem relevância para a análise.
+* Registros com datas inválidas ou ausentes.
+* Registros duplicados.
+* Categoria de produto inconsistente (`#N/D`).
+
+### Etapas de Limpeza
+
+* Remoção das colunas `Unnamed`.
+* Padronização dos nomes de produtos.
+* Padronização das categorias de produtos.
+* Conversão da coluna `DATA` para o tipo `datetime`.
+* Identificação de registros com datas ausentes.
+* Análise de registros duplicados.
+* Separação dos dados válidos para análises temporais.
+
+---
+
+## Resumo da Base
+
+| Métrica                | Valor   |
+| ---------------------- | ------- |
+| Total de registros     | 830.000 |
+| Total de colunas       | 14      |
+| Registros duplicados   | 96.553  |
+| Datas ausentes         | 58,4%   |
+| Categorias de produtos | 7       |
+
+---
+
+## Visualizações
+
+### Distribuição de Produtos por Categoria
+
+![Distribuição de Produtos por Categoria](output/grafico_produtos_categoria.png)
+
+### Distribuição de Clientes por Gênero
+
+![Distribuição de Clientes por Gênero](output/grafico_clientes_genero.png)
+
+### Distribuição de Clientes por Segmento
+
+![Distribuição de Clientes por Segmento](output/grafico_clientes_segmento.png)
+
+### Distribuição da Quantidade de Filhos
+
+![Distribuição da Quantidade de Filhos](output/grafico_quantidade_filhos.png)
+
+### Top 10 Produtos Mais Frequentes
+
+![Top 10 Produtos Mais Frequentes](output/grafico_top10_produtos.png)
+
+### Evolução Temporal das Compras
+
+![Evolução Temporal das Compras](output/grafico_evolucao_compras.png)
+
+---
+
+## Principais Insights
+
+### Produtos
+
+* A categoria Alimentos apresentou a maior quantidade de registros da base.
+* As categorias Limpeza e Higiene também apresentaram forte representatividade.
+* Alguns produtos apresentam elevada frequência de ocorrência, indicando padrões recorrentes de compra.
+
+### Clientes
+
+* A distribuição dos clientes por gênero mostrou uma composição equilibrada da base.
+* A maior parte dos clientes possui entre 0 e 2 filhos.
+* Os segmentos de clientes apresentam distribuições distintas, possibilitando futuras estratégias de segmentação.
+
+### Qualidade dos Dados
+
+* Foi identificado um percentual elevado de datas ausentes (58,4%).
+* A presença de registros duplicados reforça a importância da etapa de limpeza antes da análise.
+
+### Comportamento Temporal
+
+* A evolução das compras ao longo do tempo permite identificar tendências e possíveis sazonalidades.
+* A análise temporal foi realizada apenas com registros que possuíam datas válidas.
+
+---
+
+## Tecnologias Utilizadas
+
+* Python 3.12
+* Pandas
+* NumPy
+* Matplotlib
+* Jupyter Notebook
 * Git
+* GitHub
 
-## Instalação
+---
+
+## Como Executar
 
 ### 1. Clonar o repositório
 
 ```bash
 git clone <url-do-repositorio>
-cd modulo1_mini_projeto_avaliativo
 ```
 
-### 2. Criar o ambiente virtual
+### 2. Acessar a pasta do projeto
 
-Linux/macOS:
+```bash
+cd Miniprojeto_LuizFabioDaCruz_V2
+```
+
+### 3. Criar o ambiente virtual
+
+#### Linux
 
 ```bash
 python3 -m venv venv
 ```
 
-Windows:
+#### Windows
 
 ```powershell
 python -m venv venv
 ```
 
-### 3. Ativar o ambiente virtual
+### 4. Ativar o ambiente virtual
 
-Linux/macOS:
+#### Linux
 
 ```bash
 source venv/bin/activate
 ```
 
-Windows (PowerShell):
+#### Windows (PowerShell)
 
 ```powershell
 venv\Scripts\Activate.ps1
 ```
 
-### 4. Instalar as dependências
+#### Windows (CMD)
+
+```cmd
+venv\Scripts\activate.bat
+```
+
+### 5. Instalar as dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Execução
-
-Executar o script principal:
-
-```bash
-python main.py
-```
-
-## Notebook
-
-Para abrir o notebook:
+### 6. Executar o Jupyter Notebook
 
 ```bash
 jupyter notebook
 ```
 
-Em seguida, acesse:
+### 7. Abrir o notebook principal
 
 ```text
 notebooks/main.ipynb
 ```
 
-## Bibliotecas Utilizadas
-
-* Pandas
-* NumPy
-* Matplotlib
-* Jupyter Notebook
-
-
-
-
-
-
-# Problemas Identificados
-
-Durante a etapa de análise exploratória dos dados (EDA), foram identificadas as seguintes inconsistências:
-
-* Presença de espaços em branco no início e/ou final dos valores da coluna **PR_CAT** (Categoria do Produto).
-* Presença de espaços em branco no início e/ou final dos valores da coluna **PR_NOME** (Nome do Produto).
-* Existência de colunas não nomeadas (*Unnamed*), sem relevância para a análise.
-* Presença de valores nulos em algumas colunas do conjunto de dados.
-* Identificação da categoria **"#N/D"**, indicando ausência ou inconsistência na classificação do produto.
-* Registros com datas ausentes em colunas relacionadas ao processo de vendas.
-
-# Etapas de Limpeza e Tratamento dos Dados
-
-Para garantir a qualidade e consistência das análises, foram realizadas as seguintes ações:
-
-1. Remoção das colunas não nomeadas (*Unnamed*), por não agregarem valor ao processo analítico.
-2. Tratamento dos valores nulos e remoção de colunas sem relevância para a análise.
-3. Padronização dos campos textuais, removendo espaços excedentes e ajustando a formatação dos valores.
-4. Conversão das colunas de data para o tipo adequado (`datetime`), permitindo análises temporais mais precisas.
-5. Identificação de registros com datas ausentes. Optou-se por não realizar imputação automática, recomendando validação em fontes complementares para maior confiabilidade na tomada de decisão.
-6. Reclassificação da categoria **"#N/D"** para **"Outros"**, permitindo sua inclusão nas análises sem comprometer a segmentação dos dados.
-
-# Considerações
-
-As etapas de tratamento foram realizadas com o objetivo de melhorar a qualidade dos dados e reduzir possíveis impactos de inconsistências nas análises estatísticas e na geração de indicadores.
+---
 
 ## Autor
 
-Luiz Fabio da Cruz
+Luiz Fábio da Cruz
 
+Projeto desenvolvido como atividade prática de Análise de Dados utilizando Python.
 
