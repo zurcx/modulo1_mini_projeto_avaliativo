@@ -230,10 +230,10 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-### 7. Abrir o notebook principal
+### 7. Abrir o .py no vscode 
 
 ```text
-notebooks/Notebook_Grafico.ipynb
+main.py
 ```
 
 ---
