@@ -25,6 +25,13 @@ arquivo = "base_varejo.csv"
 data_execucao = datetime.now().strftime("%Y%m%d")
 
 # Ignorando warning message
+import warnings
+
+warnings.filterwarnings("ignore")
+
+# Configurações para deixar a exibição mais legível
+pd.set_option("display.max_columns", None)  # Mostrar todas as colunas
+pd.set_option("display.float_format", "{:.2f}".format)  # 2 casas decimais
 
 
 # Carregar o dataset
