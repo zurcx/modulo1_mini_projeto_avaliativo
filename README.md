@@ -175,7 +175,7 @@ Durante a análise foram identificados e tratados diversos problemas na base.
 ### 1. Clonar o repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone <https://github.com/zurcx/modulo1_mini_projeto_avaliativos>
 ```
 
 ### 2. Acessar a pasta do projeto
