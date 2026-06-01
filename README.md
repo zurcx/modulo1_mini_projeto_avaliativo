@@ -230,7 +230,7 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-### 7. Abrir o .py no vscode 
+### 7. Abrir o .py no vscode ou qualquer prompt compativel 
 
 ```text
 main.py
